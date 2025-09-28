@@ -91,11 +91,3 @@
 .glass {
   @apply bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20;
 }
-
-// postcss.config.js
-module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-}
