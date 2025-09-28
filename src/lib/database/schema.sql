@@ -373,18 +373,18 @@ BEGIN
     total_payouts = EXCLUDED.total_payouts,
     avg_accuracy = EXCLUDED.avg_accuracy;
 END;
-$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;
 
 -- Trigger to update analytics when league is resolved
 CREATE OR REPLACE FUNCTION trigger_calculate_analytics()
-RETURNS TRIGGER AS $
+RETURNS TRIGGER AS $$
 BEGIN
   IF NEW.is_resolved = true AND OLD.is_resolved = false THEN
     PERFORM calculate_league_analytics(NEW.id);
   END IF;
   RETURN NEW;
 END;
-$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;
 
 CREATE TRIGGER league_resolved_analytics
   AFTER UPDATE ON leagues
