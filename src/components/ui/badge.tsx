@@ -1,4 +1,4 @@
-# src/components/ui/badge.tsx
+// src/components/ui/badge.tsx (CORRECTED - Remove comment line)
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
