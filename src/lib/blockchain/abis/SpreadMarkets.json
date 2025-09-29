@@ -1,3 +1,22 @@
+// src/lib/blockchain/abis/SpreadMarkets.json (Placeholder until you deploy)
 {
-  "abi": []
+  "abi": [
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [{"internalType": "address", "name": "", "type": "address"}],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getCounts",
+      "outputs": [
+        {"internalType": "uint256", "name": "leagues_", "type": "uint256"},
+        {"internalType": "uint256", "name": "markets_", "type": "uint256"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
 }
