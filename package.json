@@ -47,7 +47,7 @@
     "postcss": "^8.4.0",
     "eslint": "^8.54.0",
     "eslint-config-next": "^14.0.0",
-    "@hardhat/hardhat-toolbox": "^3.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
     "hardhat": "^2.19.0",
     "@openzeppelin/contracts": "^5.0.0",
     "@nomicfoundation/hardhat-verify": "^1.1.0"
