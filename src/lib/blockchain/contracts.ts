@@ -1,10 +1,18 @@
-### 15. src/lib/blockchain/contracts.ts
-```typescript
+// src/lib/blockchain/contracts.ts (CORRECTED - Remove markdown formatting)
 import { ethers } from 'ethers';
 import { useContract, useProvider, useSigner } from 'wagmi';
 import SpreadMarketsABI from './abis/SpreadMarkets.json';
 
 const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS!;
+const USDC_ADDRESS = process.env.NEXT_PUBLIC_USDC_ADDRESS!;
+
+const USDC_ABI = [
+  "function approve(address spender, uint256 amount) external returns (bool)",
+  "function balanceOf(address account) external view returns (uint256)",
+  "function transfer(address to, uint256 amount) external returns (bool)",
+  "function allowance(address owner, address spender) external view returns (uint256)",
+  "function decimals() external view returns (uint8)"
+];
 
 export function useSpreadMarketsContract() {
   const provider = useProvider();
@@ -13,6 +21,19 @@ export function useSpreadMarketsContract() {
   const contract = useContract({
     address: CONTRACT_ADDRESS,
     abi: SpreadMarketsABI,
+    signerOrProvider: signer || provider,
+  });
+
+  return contract;
+}
+
+export function useUSDCContract() {
+  const provider = useProvider();
+  const { data: signer } = useSigner();
+
+  const contract = useContract({
+    address: USDC_ADDRESS,
+    abi: USDC_ABI,
     signerOrProvider: signer || provider,
   });
 
